@@ -3,93 +3,95 @@
 require 'spec_helper'
 
 describe RhythmicUnit do
-  subject(:rhythmic_unit) { RhythmicUnit.get(name) }
+  describe '.get' do
+    subject(:rhythmic_unit) { RhythmicUnit.get(name) }
 
-  context 'for :whole' do
-    let(:name) { :whole }
+    context 'for :whole' do
+      let(:name) { :whole }
 
-    its(:relative_value) { is_expected.to eq 1 }
-    its(:notehead) { is_expected.to eq :open }
-    it { is_expected.not_to be_stemmed }
-    its(:flags) { are_expected.to eq 0 }
-    its(:british_name) { is_expected.to eq 'semibreve' }
-  end
+      its(:relative_value) { is_expected.to eq 1 }
+      its(:notehead) { is_expected.to eq :open }
+      it { is_expected.not_to be_stemmed }
+      its(:flags) { are_expected.to eq 0 }
+      its(:british_name) { is_expected.to eq 'semibreve' }
+    end
 
-  context 'for :half' do
-    let(:name) { :half }
+    context 'for :half' do
+      let(:name) { :half }
 
-    its(:relative_value) { is_expected.to eq 1.0 / 2 }
-    its(:notehead) { is_expected.to eq :open }
-    it { is_expected.to be_stemmed }
-    its(:flags) { are_expected.to eq 0 }
-    its(:british_name) { is_expected.to eq 'minim' }
-  end
+      its(:relative_value) { is_expected.to eq 1.0 / 2 }
+      its(:notehead) { is_expected.to eq :open }
+      it { is_expected.to be_stemmed }
+      its(:flags) { are_expected.to eq 0 }
+      its(:british_name) { is_expected.to eq 'minim' }
+    end
 
-  context 'for :quarter' do
-    let(:name) { :quarter }
+    context 'for :quarter' do
+      let(:name) { :quarter }
 
-    its(:relative_value) { is_expected.to eq 1.0 / 4 }
-    its(:notehead) { is_expected.to eq :closed }
-    it { is_expected.to be_stemmed }
-    its(:flags) { are_expected.to eq 0 }
-    its(:british_name) { is_expected.to eq 'crotchet' }
-  end
+      its(:relative_value) { is_expected.to eq 1.0 / 4 }
+      its(:notehead) { is_expected.to eq :closed }
+      it { is_expected.to be_stemmed }
+      its(:flags) { are_expected.to eq 0 }
+      its(:british_name) { is_expected.to eq 'crotchet' }
+    end
 
-  context 'for :eighth' do
-    let(:name) { :eighth }
+    context 'for :eighth' do
+      let(:name) { :eighth }
 
-    its(:relative_value) { is_expected.to eq 1.0 / 8 }
-    its(:notehead) { is_expected.to eq :closed }
-    it { is_expected.to be_stemmed }
-    its(:flags) { are_expected.to eq 1 }
-    its(:british_name) { is_expected.to eq 'quaver' }
-  end
+      its(:relative_value) { is_expected.to eq 1.0 / 8 }
+      its(:notehead) { is_expected.to eq :closed }
+      it { is_expected.to be_stemmed }
+      its(:flags) { are_expected.to eq 1 }
+      its(:british_name) { is_expected.to eq 'quaver' }
+    end
 
-  context 'for :sixteenth' do
-    let(:name) { :sixteenth }
+    context 'for :sixteenth' do
+      let(:name) { :sixteenth }
 
-    its(:relative_value) { is_expected.to eq 1.0 / 16 }
-    its(:notehead) { is_expected.to eq :closed }
-    it { is_expected.to be_stemmed }
-    its(:flags) { are_expected.to eq 2 }
-    its(:british_name) { is_expected.to eq 'semiquaver' }
-  end
+      its(:relative_value) { is_expected.to eq 1.0 / 16 }
+      its(:notehead) { is_expected.to eq :closed }
+      it { is_expected.to be_stemmed }
+      its(:flags) { are_expected.to eq 2 }
+      its(:british_name) { is_expected.to eq 'semiquaver' }
+    end
 
-  context 'for thirty-second' do
-    let(:name) { 'thirty-second' }
+    context 'for thirty-second' do
+      let(:name) { 'thirty-second' }
 
-    its(:relative_value) { is_expected.to eq 1.0 / 32 }
-    its(:notehead) { is_expected.to eq :closed }
-    it { is_expected.to be_stemmed }
-    its(:flags) { are_expected.to eq 3 }
-    its(:british_name) { is_expected.to eq 'demisemiquaver' }
-  end
+      its(:relative_value) { is_expected.to eq 1.0 / 32 }
+      its(:notehead) { is_expected.to eq :closed }
+      it { is_expected.to be_stemmed }
+      its(:flags) { are_expected.to eq 3 }
+      its(:british_name) { is_expected.to eq 'demisemiquaver' }
+    end
 
-  context 'for "double whole"' do
-    let(:name) { 'double whole' }
+    context 'for "double whole"' do
+      let(:name) { 'double whole' }
 
-    its(:relative_value) { is_expected.to eq 2 }
-    its(:notehead) { is_expected.to eq :breve }
-    it { is_expected.not_to be_stemmed }
-    its(:flags) { are_expected.to eq 0 }
-    its(:british_name) { is_expected.to eq 'breve' }
-  end
+      its(:relative_value) { is_expected.to eq 2 }
+      its(:notehead) { is_expected.to eq :breve }
+      it { is_expected.not_to be_stemmed }
+      its(:flags) { are_expected.to eq 0 }
+      its(:british_name) { is_expected.to eq 'breve' }
+    end
 
-  context 'for "breve"' do
-    let(:name) { 'breve' }
+    context 'for "breve"' do
+      let(:name) { 'breve' }
 
-    its(:relative_value) { is_expected.to eq 2 }
-    its(:notehead) { is_expected.to eq :breve }
-    it { is_expected.not_to be_stemmed }
-    its(:flags) { are_expected.to eq 0 }
-    its(:british_name) { is_expected.to eq 'breve' }
-  end
+      its(:relative_value) { is_expected.to eq 2 }
+      its(:notehead) { is_expected.to eq :breve }
+      it { is_expected.not_to be_stemmed }
+      its(:flags) { are_expected.to eq 0 }
+      its(:british_name) { is_expected.to eq 'breve' }
+    end
 
-  context 'when given an instance' do
-    let(:instance) { described_class.get(:quarter) }
+    context 'when given an instance' do
+      let(:instance) { described_class.get(:quarter) }
 
-    it 'returns that instance' do
-      expect(described_class.get(instance)).to be instance
+      it 'returns that instance' do
+        expect(described_class.get(instance)).to be instance
+      end
     end
   end
 
