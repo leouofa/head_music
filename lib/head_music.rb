@@ -56,6 +56,9 @@ require 'head_music/staff'
 require 'head_music/voice'
 
 # analysis
+require 'head_music/analysis/selection'
+
+# style
 require 'head_music/style/analysis'
 require 'head_music/style/annotation'
 require 'head_music/style/mark'
