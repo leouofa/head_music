@@ -63,4 +63,12 @@ class HeadMusic::Clef
   def ==(other)
     to_s == other.to_s
   end
+
+  # Note: There are unicode characters for all of these.
+  # https://www.compart.com/en/unicode/search?q=clef#characters
+
+  # Note: The are ottava alta (/supra) and ottava bassa versions of the G and F clefs
+  # that could be added
+  # Ottava alta and ottava bassa exist as both sectional notations and as modifiers on clefs.
+  # It could be a 'Modifier' that can be added to a clef instead of a separate clef.
 end
