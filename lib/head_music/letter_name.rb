@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 # Music has seven lette names that are used to identify pitches and pitch classes.
+#
+# Note: add aliases, including solfege
 class HeadMusic::LetterName
   NAMES = %w[C D E F G A B].freeze
 
